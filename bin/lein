@@ -174,6 +174,8 @@ if [ "$HTTP_CLIENT" = "" ]; then
     if type -p curl >/dev/null 2>&1; then
         if [ "$https_proxy" != "" ]; then
             CURL_PROXY="-x $https_proxy"
+        elif [ "$http_proxy" != "" ]; then
+            CURL_PROXY="-x $http_proxy"
         fi
         HTTP_CLIENT="curl $CURL_PROXY -f -L -o"
     else
